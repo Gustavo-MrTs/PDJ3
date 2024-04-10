@@ -6,10 +6,14 @@ public class CheckBlock : MonoBehaviour
 {
     public GameObject Slider;
     private SliderProgression slider;
+    public GameObject stageManager;
+
+    private StagesController stagesController;
 
     private void Start()
     {
         slider = Slider.GetComponent<SliderProgression>();
+        stagesController = stageManager.GetComponent<StagesController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,6 +24,7 @@ public class CheckBlock : MonoBehaviour
 
             slider.IncreaseProgress();
 
+            stagesController.ProgressStage();
         }
 
         else 
