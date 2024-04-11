@@ -11,9 +11,12 @@ public class AnimalsAudioPlayer : MonoBehaviour
 
     public int availableAudios;
 
+    public GameObject levelComplete;
+
     private AnimalStage currentAudio;
 
     private Button[] buttons;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -58,9 +61,15 @@ public class AnimalsAudioPlayer : MonoBehaviour
     {
         int r = UnityEngine.Random.Range(0, availableAudios) + 1;
         availableAudios--;
-        
 
-        PlayAndRemoveByPosition(r);
+
+if(availableAudios >= 0) PlayAndRemoveByPosition(r);
+
+else levelComplete.SetActive(true);
+
+
+
+
     }
 
     private void PlayAndRemoveByPosition(int position)
