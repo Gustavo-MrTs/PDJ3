@@ -1,37 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class AnimalsAudioPlayer : MonoBehaviour
 {
     public List<AudioSource> audios;
-    public AnimalAudio sent;
+    public AnimalStage sent;
 
-    private int availableAudios;
+    public int availableAudios;
 
-    private AnimalAudio currentAudio;
+    private AnimalStage currentAudio;
+
+    private Button[] buttons;
 
     // Start is called before the first frame update
     void Awake()
     {
-        sent = new AnimalAudio();
-        sent.prox = sent;
-        sent.ant = sent;
+        /*  sent = new AnimalStage();
+          sent.prox = sent;
+          sent.ant = sent;
 
-        AnimalAudio at = sent;
+          AnimalStage at = sent;
 
-        for (int i = 0; i < audios.Count; i++)
+          for (int i = 0; i < audios.Count; i++)
+          {
+              at.prox = new AnimalStage(audios[i]);
+              at.prox.ant = at;
+              at = at.prox;
+          }
+
+
+          at.prox = sent;
+          sent.ant = at;
+
+          availableAudios = audios.Count;
+        */
+
+
+
+
+        // Encontra todos os botões na cena
+         buttons = FindObjectsOfType<Button>();
+
+        // Itera sobre todos os botões encontrados
+        foreach (Button but in buttons)
         {
-            at.prox = new AnimalAudio(audios[i]);
-            at.prox.ant = at;
-            at = at.prox;
+            // Adiciona um listener de evento ao botão para o evento de clique
+            but.onClick.AddListener(() => VerifyButtonTag(but));
         }
 
-
-        at.prox = sent;
-        sent.ant = at;
-
-        availableAudios = audios.Count;
+        PlayRandomAudio();
     }
 
     public void PlayRandomAudio()
@@ -45,11 +65,11 @@ public class AnimalsAudioPlayer : MonoBehaviour
 
     private void PlayAndRemoveByPosition(int position)
     {
-        AnimalAudio at = sent;
+        AnimalStage at = sent;
         int i;
         for (i = 1, at = sent.prox; i != position /*|| at != sent*/; i++, at = at.prox);
-
         at.Play();
+        at.ActiveStage();
         at.prox.ant = at.ant;
         at.ant.prox = at.prox;
         at.ant = null;
@@ -64,4 +84,18 @@ public class AnimalsAudioPlayer : MonoBehaviour
         currentAudio.Play();
 
     }
+
+    private void VerifyButtonTag(Button botao)
+    {
+        if (botao.CompareTag("Block"))
+        {
+           PlayRandomAudio();
+        }
+        else if (botao.CompareTag("Block2"))
+        {
+            Debug.Log("Errou D:");
+        }
+    }
+
+
 }
