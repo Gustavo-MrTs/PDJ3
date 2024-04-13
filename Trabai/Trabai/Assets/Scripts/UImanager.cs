@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject creditsUI;
     public GameObject musicaDeFundo;
     public GameObject somMouseClick;
+    public GameObject gamesUI;
 
     public List<GameObject> notasPiano;
     private List<AudioSource> audios;
@@ -25,15 +26,44 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void PlayGame1()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void PlayGame2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void PlayGame3()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void PlayGame4()
+    {
+        SceneManager.LoadScene(5);
+    }
+
+    public void PlayGame5()
+    {
+        SceneManager.LoadScene(5);
+    }
+
+    public void OpenGamesUI()
+    {
+        configUI.SetActive(false);
+        creditsUI.SetActive(false);
+        gamesUI.SetActive(true);
+
     }
 
     // Call this method when the open button is clicked
     public void OpenConfigUI()
     {
         creditsUI.SetActive(false);
+        gamesUI.SetActive(false);
         configUI.SetActive(true); // Show the config UI
     }
 
@@ -46,6 +76,7 @@ public class UIManager : MonoBehaviour
     public void OpenCreditsUI()
     {
         configUI.SetActive(false); // Hide the config UI
+        gamesUI.SetActive(false);
         creditsUI.SetActive(true);
 
     }
