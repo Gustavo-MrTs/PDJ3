@@ -390,6 +390,7 @@
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/Games/Animals Sounds/AnimalsAudioPlayer.cs"
 "Assets/Scripts/Games/Animals Sounds/AnimalStage.cs"
+"Assets/Scripts/Games/ChangeSceneButtons.cs"
 "Assets/Scripts/Games/Drag Blocks/ButtonsController.cs"
 "Assets/Scripts/Games/Drag Blocks/CheckBlock.cs"
 "Assets/Scripts/Games/Drag Blocks/ExampleClass.cs"

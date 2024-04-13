@@ -63,10 +63,15 @@ public class AnimalsAudioPlayer : MonoBehaviour
         availableAudios--;
 
 
-if(availableAudios >= 0) PlayAndRemoveByPosition(r);
+        if (availableAudios >= 0) PlayAndRemoveByPosition(r);
 
-else levelComplete.SetActive(true);
+        else
+        {
+            for (int i = 0; i < buttons.Length; i++) buttons[i].gameObject.SetActive(false);
+            
 
+            levelComplete.SetActive(true);
+        }
 
 
 

@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DragBlocks.unity
     guid: 99a90944bbadecb41a677a97f6fad57e
+  - enabled: 1
+    path: Assets/Scenes/AnimalsSounds.unity
+    guid: 8fb8bc035e6236c48bc0d734a00bd7e3
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
